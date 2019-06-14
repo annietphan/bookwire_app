@@ -1,0 +1,13 @@
+
+<%= form_for @club do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br />
+
+  <%= f.label :genre %>
+  <%= f.text_field :genre %><br />
+
+  <%= f.label :description %>
+  <%= f.text_area :description %><br />
+
+  <%= f.submit %>
+<% end %>
