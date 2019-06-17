@@ -1,15 +1,16 @@
 class BooksController < ApplicationController
-  before_action :find_book
 
   def index
     @books = Book.all
   end
 
   def show
+    find_book
   end
 
   def new
     @book = current_user.books.build
+    @user = current_user
   end
 
   def create

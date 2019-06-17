@@ -6,16 +6,12 @@
 </ul>
 <% end %>
 
-<%= form_for [user, book] do |f| %>
-  <%= f.text_field :title, placeholder: "Title" %><br />
+<%= form_for [@user, @book] do |f| %>
+  <h3>Title: <%= f.text_field :title, placeholder: "Title" %></h3>
+  <h4>By: <%= f.text_field :author, placeholder: "Author" %></h4>
 
-  <%= f.text_field :author, placeholder: "Author" %><br />
-
-  <%= f.text_field :genre, placeholder: "Genre" %><br />
-
-  <%= f.text_area :summary, placeholder: "Summary" %><br />
-
-  <br />
+  <p>Genre: <%= f.text_field :genre, placeholder: "Genre" %><p>
+  <p>Summary: <%= f.text_area :summary, placeholder: "Summary" %></p>
 
   <%= f.submit %>
 
