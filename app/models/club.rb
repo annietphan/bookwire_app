@@ -5,6 +5,6 @@ class Club < ApplicationRecord
   validates :genre, presence: true
   validates :description, presence: true
 
-  accepts_nested_attributes_for :books, reject_if: proc { |attributes| attributes[:name].blank?}
+  accepts_nested_attributes_for :books, reject_if: proc { |attributes| attributes[:name].blank?}, allow_destroy: true
 
 end

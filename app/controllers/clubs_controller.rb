@@ -45,6 +45,6 @@ class ClubsController < ApplicationController
   end
 
   def club_params
-    params.require(:club).permit(:name, :genre, :description, books_attributes: [:title, :author, :summary])
+    params.require(:club).permit(:name, :genre, :description, books_attributes: [:id, :title, :author, :summary, :_destroy])
   end
 end
