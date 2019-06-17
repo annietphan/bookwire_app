@@ -5,3 +5,4 @@ Genre: <%= @book.genre %><br><br>
 Summary: <%= @book.summary %>
 
 <%= link_to "Add Review for this Book", new_review_path %>
+<%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: 'Are you sure?' } %>

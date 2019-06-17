@@ -37,6 +37,12 @@ class BooksController < ApplicationController
     end
   end
 
+  def destroy
+    find_book.destroy
+    redirect_to root_path
+
+  end
+
   private
 
   def find_book
