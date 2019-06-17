@@ -5,6 +5,7 @@ class CreateClubs < ActiveRecord::Migration[5.2]
       t.string :genre
       t.text :description
 
+
       t.timestamps
     end
   end
