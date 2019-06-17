@@ -38,7 +38,7 @@ class BooksController < ApplicationController
 
   def destroy
     find_book.destroy
-    redirect_to books_path
+    redirect_to books_path, notice: "Succesfully deleted book!"
 
   end
 

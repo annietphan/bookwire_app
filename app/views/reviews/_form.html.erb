@@ -8,9 +8,9 @@
 
 <%= form_for @review do |f| %>
   <%= f.text_area :comment, placeholder: "Add Comment" %><br>
-  Would you recommend this to a friend? <br>
+  Check to recommend this to a friend
 
-  <%= f.check_box :recommend, '', {}, 'Yes', 'No'%>
+  <%= f.check_box :recommend%>
   <br>
   <%= f.submit %>
 
