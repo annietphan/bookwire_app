@@ -1,11 +1,12 @@
 class BooksController < ApplicationController
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
     @books = Book.all
   end
 
   def show
-    find_book
+
   end
 
   def new
@@ -24,7 +25,6 @@ class BooksController < ApplicationController
   end
 
   def edit
-    find_book
   end
 
   def update
@@ -37,14 +37,14 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    find_book.destroy
+    @book.destroy
     redirect_to books_path, notice: "Succesfully deleted book!"
 
   end
 
   private
 
-  def find_book
+  def set_book
     @book = Book.find(params[:id])
   end
 

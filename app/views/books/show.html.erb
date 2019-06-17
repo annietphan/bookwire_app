@@ -4,5 +4,17 @@ Genre: <%= @book.genre %><br><br>
 
 Summary: <%= @book.summary %>
 <br>
-<%= link_to "Add Review for this Book", new_review_path %><br>
-<%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+<% if @book.reviews.any? %>
+<hr>
+<h2>Reviews for <%= @book.title %></h2>
+<%= render @book.reviews %>
+<% end %>
+
+<h2>Add a review:</h2>
+<%= render 'reviews/form', review: @book.reviews.build %>
+
+
+<%= link_to "Edit Book", edit_book_path(@book) %>
+<%= link_to "Delete Book", book_path(@book), method: :delete, data: { confirm: 'Are you sure?' } %>

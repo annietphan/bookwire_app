@@ -1,17 +1,13 @@
-<% if @review.errors.any? %>
-<ul>
-  <% @review.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-</ul>
-<% end %>
 
-<%= form_for @review do |f| %>
-  <%= f.text_area :comment, placeholder: "Add Comment" %><br>
-  Check to recommend this to a friend
 
-  <%= f.check_box :recommend%>
-  <br>
+<%= form_for [@book, review] do |f| %>
+  <p>
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </p>
+  <p>
+    <%= f.label "Check to recommend to a friend" %><br />
+    <%= f.check_box :recommend %><br />
+  </p>
   <%= f.submit %>
-
 <% end %>
