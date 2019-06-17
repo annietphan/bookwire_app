@@ -17,7 +17,6 @@ class BooksController < ApplicationController
     @book = current_user.books.build(book_params)
 
     if @book.save
-      @book.reviews.create(user_id: current_user.id)
       redirect_to user_book_path(current_user, @book), notice: "Succesfully created book!"
     else
       render 'new'
@@ -39,7 +38,7 @@ class BooksController < ApplicationController
 
   def destroy
     find_book.destroy
-    redirect_to root_path
+    redirect_to books_path
 
   end
 
