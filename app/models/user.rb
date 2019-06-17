@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :books, through: :reviews
 
   validates :username, uniqueness: true
+  validates :email, uniqueness: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
