@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :reviews
   resources :books
-  resources :user do
+  resources :users do
     resources :books
   end
   # resources :clubs do

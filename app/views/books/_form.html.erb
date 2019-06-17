@@ -1,0 +1,22 @@
+<% if @book.errors.any? %>
+<ul>
+  <% @book.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for [user, book] do |f| %>
+  <%= f.text_field :title, placeholder: "Title" %><br />
+
+  <%= f.text_field :author, placeholder: "Author" %><br />
+
+  <%= f.text_field :genre, placeholder: "Genre" %><br />
+
+  <%= f.text_area :summary, placeholder: "Summary" %><br />
+
+  <br />
+
+  <%= f.submit %>
+
+<% end %>

@@ -17,7 +17,7 @@ class BooksController < ApplicationController
 
     if @book.save
       @book.reviews.create(user_id: current_user.id)
-      redirect_to book_path(@book)
+      redirect_to user_book_path(current_user, @book)
     else
       render 'new'
     end
