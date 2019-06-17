@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
-  belongs_to :club, inverse_of: :book
-  belongs_to :user
+  has_many :reviews, dependent: :destroy
+  has_many :users, through: :reviews
+
+  validates :title, :genre, :author, :summary, presence: true
 end
