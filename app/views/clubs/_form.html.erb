@@ -8,8 +8,13 @@
 
   <%= f.label :description %>
   <%= f.text_area :description %><br />
+  <p>Add Book to Start</p>
+  <%= f.fields_for :book do |b| %>
+  <%= b.text_field :title, placeholder: "Title" %><br />
+  <%= b.text_field :author, placeholder: "Author" %><br />
+  <%= b.text_area :summary, placeholder: "Summary" %><br />
 
-  <%= f.fields_for :books do |b| %>
+  <% end %>
 
   <%= f.submit %>
 <% end %>
