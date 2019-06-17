@@ -18,9 +18,22 @@ class BooksController < ApplicationController
 
     if @book.save
       @book.reviews.create(user_id: current_user.id)
-      redirect_to user_book_path(current_user, @book)
+      redirect_to user_book_path(current_user, @book), notice: "Succesfully created book!"
     else
       render 'new'
+    end
+  end
+
+  def edit
+    find_book
+  end
+
+  def update
+    find_book
+    if @book.update(book_params)
+      redirect_to user_book_path(current_user, @book), notice: "Succesfully updated book!"
+    else
+      render 'edit'
     end
   end
 
