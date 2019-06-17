@@ -1,9 +1,0 @@
-<p><%= review.id %> | <%= link_to "See More", book_review_path(@book, review) %></p>
-
-<p>Edit this review: </p>
-
-<%= render 'reviews/form', review: review %>
-
-<p><%= link_to "Delete Review", book_review_path(@book, review), method: :delete %></p>
-
-<hr>

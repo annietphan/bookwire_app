@@ -1,7 +1,0 @@
-All Books
-
-<ul>
-  <% @books.each do |book| %>
-    <li><%= book.title %> by <%= book.author %> // <small><%=link_to "view details", book_path(book)%></small></li>
-  <% end %>
-</ul>
