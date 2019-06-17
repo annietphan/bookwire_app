@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   resources :books
   # resources :clubs do
   #   resources :books, only: [:index, :new, :create]
