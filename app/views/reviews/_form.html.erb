@@ -1,0 +1,21 @@
+<% if @review.errors.any? %>
+<ul>
+  <% @review.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for @review do |f| %>
+  <%= f.text_area :comment, placeholder: "Add Comment" %><br>
+  Would you recommend this to a friend? <br>
+
+  <%= f.label 'recommend_true', 'yes' %>
+  <%= f.radio_button :recommend, true %> //
+
+  <%= f.label 'recommend_false', 'no' %>
+  <%= f.radio_button :recommend, false %>
+  <br>
+  <%= f.submit %>
+
+<% end %>
