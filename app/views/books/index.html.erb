@@ -1,1 +1,5 @@
-<h1>Index View</h1>
+<% @books.each do |book| %>
+  <h2><%= book.title %></h2>
+<% end %>
+
+<%= link_to "Add Book", new_book_path %>
