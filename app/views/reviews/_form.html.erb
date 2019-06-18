@@ -1,8 +1,4 @@
-<% if @book.reviews.last.errors %>
-  <%  @book.reviews.last.errors.full_messages.each do |error| %>
-    <%= error %>
-  <%end%>
-<%end%>
+
 
 
 <%= simple_form_for([@book, @book.reviews.build]) do |f| %>

@@ -1,8 +1,16 @@
 <h1>Edit Book</h1>
 
 
+<% if @book.errors %>
+  <ul>
+    <%  @book.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <%end%>
+  </ul>
+<%end%>
+
 <%= simple_form_for @book, :html => { :multipart => true } do |f| %>
-  <%= f.select :genre_id, @genres %>
+  <%= f.select :genre_id, Genre.all.map {|g| [g.name, g.id]} %>
   <%= f.file_field :book_image %>
   <%= f.input :title, label: "Book Title" %>
   <%= f.input :summary %>

@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true
   validates :email, uniqueness: true
-  validates :name, :username, :password, presence: true
+  validates :username, :password, presence: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

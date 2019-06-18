@@ -1,13 +1,19 @@
 
 <% if @book.errors %>
-  <%  @book.errors.full_messages.each do |error| %>
-    <%= error %>
-  <%end%>
+  <ul>
+    <%  @book.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <%end%>
+  </ul>
 <%end%>
 
 
+
 <%= simple_form_for @book, :html => { :multipart => true } do |f| %>
-  <%= select_tag(:genre_id, options_for_select(@genres), :prompt => "Select a category") %>
+  <%= f.select :genre_id, Genre.all.map {|g| [g.name, g.id]}, prompt: "Select a Genre" %>
+  <!--f.select :genre_id, Genre.all.map {|g| [g.name, g.id]}, :multiple => false, label:  "Select a genre"-->
+
+  <!--select_tag(:genre_id, options_for_select(@genres), :prompt => "Select a category")-->
 
   <%= f.file_field :book_image %>
 

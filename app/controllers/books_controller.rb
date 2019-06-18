@@ -24,7 +24,7 @@ class BooksController < ApplicationController
   def new
     @book = current_user.books.build
     # @genres = Genre.all.map{ |g| [g.name, g.id] }
-    map_all_genres
+    # map_all_genres
   end
 
   def create
@@ -41,7 +41,7 @@ class BooksController < ApplicationController
 
   def edit
     # @genres = Genre.all.map{ |g| [g.name, g.id] }
-    map_all_genres
+    # map_all_genres
   end
 
   def update
@@ -81,8 +81,8 @@ class BooksController < ApplicationController
     @book.genre_id = params[:genre_id]
   end
 
-  def map_all_genres
-    @genres = Genre.all.map{ |g| [g.name, g.id] }
-  end
+  # def map_all_genres
+  #   @genres = Genre.all.map{ |g| [g.name, g.id] }
+  # end
 
 end

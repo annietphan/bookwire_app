@@ -1,11 +1,14 @@
 <h1>Edit Review</h1>
 <% if @review.errors %>
-  <%  @review.errors.full_messages.each do |error| %>
-    <%= error %>
-  <%end%>
+  <ul>
+    <%  @review.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <%end%>
+  </ul>
 <%end%>
+
 <%= simple_form_for([@book, @review]) do |f| %>
-  <div id="rating-form">
+  <div id="rating-form" data-score="<%= @review.rating %>">
     <label>Rating</label>
   </div>
   <%= f.input :comment %>
