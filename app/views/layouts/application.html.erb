@@ -27,6 +27,17 @@
           <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Genres<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <% Genre.all.each do |genre| %>
+                <li>
+                  <%= link_to genre.name, books_path(genre: genre.name), class: "link" %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+
           <% if user_signed_in? %>
             <li><%= link_to "Add Book", new_book_path %></li>
           <% end %>

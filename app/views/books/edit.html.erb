@@ -1,3 +1,10 @@
 <h1>Edit Book</h1>
 
-<%= render 'form' %>
+<%= simple_form_for @book, :html => { :multipart => true } do |f| %>
+  <%= f.select :genre_id, @genres %>
+  <%= f.input :title, label: "Book Title" %>
+  <%= f.input :summary %>
+
+  <%= f.input :author %>
+  <%= f.button :submit  %>
+<% end %>
