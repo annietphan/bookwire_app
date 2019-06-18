@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :find_book, only: [:show, :edit, :update, :destroy]
+
   def index
     @books = Book.all.order("created_at DESC")
   end
@@ -9,10 +10,12 @@ class BooksController < ApplicationController
 
   def new
     @book = current_user.books.build
+    @genres = Genre.all.map{ |g| [g.name, g.id] }
   end
 
   def create
     @book = current_user.books.build(book_params)
+    @book.genre_id = params[:genre_id]
 
     if @book.save
       redirect_to root_path
@@ -41,7 +44,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :summary)
+    params.require(:book).permit(:title, :author, :summary, :genre_id)
   end
 
   def find_book
