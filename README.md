@@ -1,6 +1,15 @@
 # BookWire
 
-BookWire is an app built on Rails as the 3rd Portfolio Project in FlatIron School's Online Full-Time Web Development Course. Users can create an account with BookWire to review books that they've read. This app has CRUD functionality for books & reviews associated with the book.
+BookWire is an app built on Rails as the 3rd Portfolio Project in FlatIron School's Online Full-Time Web Development Course. Users can create an account with BookWire to review books that they've read.
+
+## Features
+* CRUD functionality for books
+* CRUD functionality for reviews
+
+### To Do:
+* Fix Oauth
+* Fix Error Messages
+* Add Discussion Thread 
 
 ## Technologies
 Project is created with:
