@@ -3,7 +3,17 @@
 <% if @books.count == 0 %>
   <h1>There are no books in this genre.</h1>
 <% else %>
-  <% @books.each do |book| %>
-    <h2><%= link_to book.title, book_path(book) %></h2>
-  <% end %>
+  <div class="row">
+
+    <% @books.each do |book| %>
+
+      <div class="col-md-3">
+        <a href="/books/<%= book.id %>">
+          <%= image_tag book.book_image.url(:book_index), class: "book" %>
+        </a>
+      </div>
+
+    <% end %>
+
+  </div>
 <% end %>

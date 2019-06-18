@@ -15,7 +15,12 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
- 
+
+ .book{
+   height: 350px;
+   width: 250px;
+ }
+
  .field_with_errors input[type='text']{
   border: 1px solid red;
 }
