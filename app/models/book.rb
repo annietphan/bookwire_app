@@ -6,4 +6,6 @@ class Book < ApplicationRecord
   has_attached_file :book_image, styles: { book_index: "250X350>", book_show: "325X475>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :book_image, content_type: /\Aimage\/.*\z/
 
+  validates :title, :author, :summary, :genre_id, :book_image, presence: true
+
 end
