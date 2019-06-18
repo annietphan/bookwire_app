@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable
 
   has_many :books
+  has_many :reviews
 
   validates :username, uniqueness: true
   validates :email, uniqueness: true
