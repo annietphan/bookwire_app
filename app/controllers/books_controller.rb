@@ -23,7 +23,7 @@ class BooksController < ApplicationController
 
   def new
     @book = current_user.books.build
-    # @genres = Genre.all.map{ |g| [g.name, g.id] }
+    @genres = Genre.all.map{ |g| [g.name, g.id] }
     # map_all_genres
   end
 

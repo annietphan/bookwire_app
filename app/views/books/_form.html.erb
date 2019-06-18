@@ -5,15 +5,12 @@
       <li><%= error %></li>
     <%end%>
   </ul>
-<%end%>
+<% end %>
 
 
 
 <%= simple_form_for @book, :html => { :multipart => true } do |f| %>
-  <%= f.select :genre_id, Genre.all.map {|g| [g.name, g.id]}, prompt: "Select a Genre" %>
-  <!--f.select :genre_id, Genre.all.map {|g| [g.name, g.id]}, :multiple => false, label:  "Select a genre"-->
-
-  <!--select_tag(:genre_id, options_for_select(@genres), :prompt => "Select a category")-->
+  <%= select_tag(:genre_id, options_for_select(Genre.all.map {|g| [g.name, g.id]}), prompt: "Select a genre") %>
 
   <%= f.file_field :book_image %>
 
