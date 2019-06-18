@@ -4,10 +4,11 @@ class BooksController < ApplicationController
 
   def index
     if params[:genre].blank?
-      @books = Book.all.order("created_at DESC")
+      @books = Book.all.ordered
     else
       @genre_id = Genre.find_by(name: params[:genre]).id
-      @books = Book.where(:genre_id => @genre_id).order("created_at DESC")
+      # @books = Book.where(genre_id: @genre_id).ordered
+      @books = Book.by_genre(@genre_id).ordered
     end
   end
 
@@ -53,6 +54,12 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     redirect_to root_path
+  end
+
+  def my_books
+    @user_id = current_user.id
+    # @books = Book.where(user_id: current_user.id).ordered
+    @books = Book.my_books(@user_id).ordered
   end
 
   private

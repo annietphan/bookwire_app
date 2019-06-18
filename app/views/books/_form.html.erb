@@ -1,8 +1,16 @@
+
+<% if @book.errors %>
+  <%  @book.errors.full_messages.each do |error| %>
+    <%= error %>
+  <%end%>
+<%end%>
+
+
 <%= simple_form_for @book, :html => { :multipart => true } do |f| %>
   <%= select_tag(:genre_id, options_for_select(@genres), :prompt => "Select a category") %>
 
   <%= f.file_field :book_image %>
-  
+
   <%= f.input :title, label: "Book Title" %>
   <%= f.input :summary %>
 

@@ -1,5 +1,9 @@
 <h1>Edit Review</h1>
-
+<% if @review.errors %>
+  <%  @review.errors.full_messages.each do |error| %>
+    <%= error %>
+  <%end%>
+<%end%>
 <%= simple_form_for([@book, @review]) do |f| %>
   <div id="rating-form">
     <label>Rating</label>

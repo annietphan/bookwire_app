@@ -1,5 +1,10 @@
 <h1>Edit Book</h1>
 
+<% if @show.errors %>
+  <%  @show.errors.full_messages.each do |error| %>
+    <%= error %>
+  <%end%>
+<%end%>
 <%= simple_form_for @book, :html => { :multipart => true } do |f| %>
   <%= f.select :genre_id, @genres %>
   <%= f.file_field :book_image %>

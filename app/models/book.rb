@@ -8,4 +8,15 @@ class Book < ApplicationRecord
 
   validates :title, :author, :summary, :genre_id, :book_image, presence: true
 
+  # scope :genre, -> (name)  { where(genre_id: name)}
+
+  scope :ordered, -> { order('created_at DESC') }
+
+  def self.my_books(user)
+    where(user_id: user)
+  end
+
+  def self.by_genre(genre)
+    where(genre_id: genre)
+  end
 end
