@@ -1,9 +1,24 @@
-<h2><%= @book.title %></h2>
-<h3><%= @book.author %></h3>
-<h4>Genre: <%= @book.genre.name %></h4>
-<p><%= @book.summary %></p>
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag @book.book_image.url(:book_show), class: "book-show" %>
+  </div>
 
+  <div class="col-md-8">
+    <h2><%= @book.title %></h2>
+    <h3><%= @book.author %></h3>
+    <h4>Genre: <%= @book.genre.name %></h4>
+    <p><%= @book.summary %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <!-- where reviews go -->
+  </div>
+</div>
 <%= link_to "Back", root_path %>
+
+
 <% if user_signed_in? %>
   <% if @book.user_id == current_user.id %>
     <%= link_to "Edit", edit_book_path(@book) %>
