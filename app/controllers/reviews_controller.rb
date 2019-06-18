@@ -3,6 +3,10 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
 
+  def index
+    @reviews = @book.reviews
+  end
+
   def new
     @review = Review.new
   end

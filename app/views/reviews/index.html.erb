@@ -1,0 +1,31 @@
+<h1>All Reviews for <%= @book.title %></h1>
+
+<ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <div class="review-rating" data-score="<%= review.rating %>"></div>
+      <small>by: <%= current_user.username %></small>
+      <p><%= review.comment %></p>
+    </li>
+  <% end %>
+</ul>
+
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
+
+<script>
+  $('.average-review-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  });
+</script>
