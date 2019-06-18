@@ -31,7 +31,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Genres<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <% Genre.all.each do |genre| %>
-                <li>
+                <li class="<%= 'active' if params[:genre] == genre.name%>">
                   <%= link_to genre.name, books_path(genre: genre.name), class: "link" %>
                 </li>
               <% end %>
