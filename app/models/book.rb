@@ -19,4 +19,6 @@ class Book < ApplicationRecord
   def self.by_genre(genre)
     where(genre_id: genre)
   end
+
+
 end

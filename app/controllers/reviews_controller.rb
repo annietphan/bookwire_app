@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_book
+  before_action :set_book, except: [:my_reviews]
   before_action :set_review, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
 
@@ -37,6 +37,11 @@ class ReviewsController < ApplicationController
     @review.destroy
 
     redirect_to book_path(@book)
+  end
+
+  def my_reviews
+    @user_id = current_user.id
+    @reviews = Review.where(user_id: current_user.id)
   end
 
   private
