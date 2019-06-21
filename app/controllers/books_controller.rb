@@ -10,10 +10,16 @@ class BooksController < ApplicationController
       # @books = Book.where(genre_id: @genre_id).ordered
       @genre_id = Genre.find_by_name(params[:genre]).id
       @books = Book.by_genre(@genre_id).ordered
+
+    # else
+    #   @books = Book.all.group_by(&:author)
     end
   end
 
+
+
   def show
+    @books = Book.all.ordered
     if @book.reviews.blank?
       @average_review = 0
     else

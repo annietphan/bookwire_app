@@ -4,7 +4,7 @@
   <% @reviews.each do |review| %>
     <li>
       <div class="review-rating" data-score="<%= review.rating %>"></div>
-      <small>by: <%= current_user.username %></small>
+      <small>by: <%= review.user.username %></small>
       <p><%= review.comment %></p>
     </li>
   <% end %>

@@ -5,11 +5,13 @@ BookWire is an app built on Rails as the 3rd Portfolio Project in FlatIron Schoo
 ## Features
 * CRUD functionality for books
 * CRUD functionality for reviews
+* Sign In with Github
 
 ### To Do:
-* Fix Oauth
 * Fix Error Messages
-* Add Discussion Thread 
+* Add Discussion Thread
+* Add Facebook, Google, LinkedIn sign in options
+* Add more styling
 
 ## Technologies
 Project is created with:
